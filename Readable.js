@@ -10,10 +10,11 @@ RandomNumbers.prototype = Object.create(stream.Readable.prototype);
 RandomNumbers.prototype.constructor = RandomNumbers;
 
 RandomNumbers.prototype._read = function() {
-  var number = Math.floor(Math.random() * (150));
+  var number = Math.floor(Math.random() * 150);
   number = number.toString();
-  console.log('Current number: ', number);
+  // console.log('Current number: ', number);
   var buff = new Buffer(number);
+  // console.log(buff);
   this.push(buff);
   this._counter++;
   if(this._counter === this._end) {
